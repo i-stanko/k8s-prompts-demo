@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-app-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: my-app
+        image: my-app:1.0.0
+        args:
+        - /bin/sh
+        - -c
+        - date; echo Hello from the Kubernetes cluster
+      restartPolicy: OnFailure
